@@ -1,5 +1,14 @@
 Nl::Application.routes.draw do
-  get "sessions/new"
+  
+	
+	
+	get "/home" => "pages#home", :as => :home
+
+  get "/about" => "pages#about", :as => :about
+
+  get "/team" => "pages#team", :as => :team
+	
+	root :to => "pages#home"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

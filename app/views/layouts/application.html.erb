@@ -7,7 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div id="navigation">
+	<%= link_to_unless_current "Home", :root %>
+	<%= link_to_unless_current "About", :about %>
+	<%= link_to_unless_current "Team", :team %>
+</div>
 <%= yield %>
 
 </body>
