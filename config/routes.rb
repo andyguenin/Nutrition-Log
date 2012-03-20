@@ -7,7 +7,12 @@ Nl::Application.routes.draw do
   get "/about" => "pages#about", :as => :about
 
   get "/team" => "pages#team", :as => :team
-	
+
+
+#	match '/signup', :to => 'users#new'	
+	match '/signin', :to => 'sessions#new'
+	match '/signout', :to => 'sessios#destroy'
+
 	root :to => "pages#home"
 
   # The priority is based upon order of creation:
