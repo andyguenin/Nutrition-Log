@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
 	def create
-		user = User.authenticate(params[:session][:email], params[:session][:password])
+		user = User.authenticate(params[:sessions][:email], params[:sessions][:password])
 		if user.nil?
 			flash.now[:error] = "Invalid email and password combiation"
 			@title = "Sign in"
@@ -17,6 +17,10 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
+		unless current_user.nil?
+			sign_out
+		end
+		redirect_to :root
 	end
 
 end

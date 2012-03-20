@@ -11,6 +11,12 @@
 	<%= link_to_unless_current "Home", :root %>
 	<%= link_to_unless_current "About", :about %>
 	<%= link_to_unless_current "Team", :team %>
+	<% unless signed_in? %>
+		<%= link_to_unless_current "Log in", :signin %>
+		<%= link_to_unless_current "Sign up", :signup %>
+	<% else %>
+		<%= link_to "Sign out", :signout %>
+	<% end %>
 </div>
 <%= yield %>
 
