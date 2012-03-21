@@ -15,9 +15,16 @@
 		<%= link_to_unless_current "Log in", :signin %>
 		<%= link_to_unless_current "Sign up", :signup %>
 	<% else %>
-		<%= link_to "Sign out", :signout %>
+		<%= link_to "Sign out", :signout %> |
+		<%= link_to current_user.name, :profile %>
 	<% end %>
 </div>
+<%if flash[:notice] %>
+	<p class = "notice"><%= flash[:notice] %></p>
+<%end%>
+<% if flash[:error] %>
+	<p class = "error"><%= flash[:error] %></p>
+<%end%>
 <%= yield %>
 
 </body>

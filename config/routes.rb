@@ -3,12 +3,12 @@ Nl::Application.routes.draw do
   get "/about" => "pages#about", :as => :about
   get "/team" => "pages#team", :as => :team
 
-	resources :sessions, :only => [:new, :create, :destroy]
   resources :users
 
-	match '/signup', :to => 'users#new'	
-	match '/signin', :to => 'sessions#new'
-	match '/signout', :to => 'sessions#destroy'
-
+	get '/signup', :to => 'users#new'
+	get '/signin', :to => 'sessions#new'
+	post '/signin', :to => 'sessions#create'
+	get '/signout', :to => 'sessions#destroy'
+  match '/profile', :to => 'users#profile'
 	root :to => "pages#home"
 end
