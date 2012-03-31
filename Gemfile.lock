@@ -119,6 +119,7 @@ DEPENDENCIES
   mysql2
   pg
   rails (= 3.2.1)
+  sass
   sass-rails
   thin
   uglifier (>= 1.0.3)
