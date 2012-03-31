@@ -11,5 +11,4 @@
  *= require_self
  *= require_tree .
 */
-RAILS_ENV=production rake assets:precompile
 
