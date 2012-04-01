@@ -1,11 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
-gem 'bootstrap-sass'
+#gem 'bootstrap-sass'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development, :test do
 	gem 'mysql2'
+	gem 'therubyracer'
 end
 
 group :production do
