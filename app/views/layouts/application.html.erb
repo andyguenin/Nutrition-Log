@@ -28,7 +28,8 @@
         </div>
       </div>
     </header>
-
+<div class="container-fluid">
+	<div class="row-fluid">
 <%if flash[:notice] %>
 	<p class = "notice"><%= flash[:notice] %></p>
 <%end%>
@@ -36,6 +37,8 @@
 	<p class = "error"><%= flash[:error] %></p>
 <%end%>
 <%= yield %>
+</div>
+</div>
 
 </body>
 </html>
