@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 	end
 
   def create
-		@user = User.create(user_params)
+		@user = User.create(user_params.merge({:username => params[:user][:username]}))
 		if @user.save
 			sign_in @user
 			redirect_to @user
@@ -42,6 +42,6 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@user = User.find(params[:id])
+  	@user = User.find_by_username(params[:id])
 	end
 end

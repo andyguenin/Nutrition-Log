@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
   end
 
 	def create
-		user = User.authenticate(params[:sessions][:email], params[:sessions][:password])
+#		user = User.authenticate(params[:sessions][:email], params[:sessions][:password])
+		user = User.find_by_email(params[:sessions][:email])
 		@redirection_url = params[:sessions][:redirection_url]
 		if user.nil?
 			@email = params[:sessions][:email]

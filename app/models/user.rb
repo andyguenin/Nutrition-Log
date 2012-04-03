@@ -1,7 +1,7 @@
 require 'digest'
 class User < ActiveRecord::Base
 	attr_accessor :password
-	attr_accessible :name, :email, :password, :password_confirmation
+	attr_accessible :name, :email, :password, :password_confirmation, :username
 
 	validates :name, :presence => true
 	validates :email, :presence => true,
@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
 		user = find_by_email(email)
 		return nil if user.nil?
 		return user if user.has_password?(submitted_password)
+	end
+
+	def to_param
+		self.username
 	end
 
 	def self.authenticate_with_salt(id, cookie_salt)

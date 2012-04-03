@@ -7,13 +7,98 @@ body { padding-top: 60px; }
 @iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
 @iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
 
-// Your custom LESS stylesheets goes here
-//
-// Since bootstrap was imported above you have access to its mixins which
-// you may use and inherit here
-//
-// If you'd like to override bootstrap's own variables, you can do so here as well
-// See http://twitter.github.com/bootstrap/less.html for their names and documentation
-//
-// Example:
-// @linkColor: #ff0000;
+@navBarBgStart: #3D368B;
+@navBarBgEnd: #232051;
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+
+}
+
+blue {
+color: #049cdb;
+}
+
+
+table{}
+td {padding:20px;
+background-color: white;
+text-align:left;
+border:2px solid grey;
+}
+th {padding-right:20px; }
+
+
+/* header */
+
+logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+}
+
+footer a {
+  color: #555;
+}  
+
+footer a:hover { 
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+

@@ -11,6 +11,7 @@
       <div class="navbar-inner">
         <div class="container-fluid">
           <%= link_to "Nutrition Log", '/home', id: "logo" %>
+
           <nav>
             <ul class="nav pull-right">
               <li><%= link_to "Home", :root %></li>
@@ -20,8 +21,9 @@
 		<li><%= link_to "Log in", :signin %></li>
 		<li><%= link_to "Sign up", :signup %><li>
 		<% else %>
-		<li><%= link_to "Sign out", :signout %> |</li>
-		<li><%= link_to current_user.name, :profile %></li>
+		<li><%= link_to "Sign out", :signout %></li>
+		
+		<li class ="blue"><%=( link_to current_user.name, :profile) %></li>
 		<% end %>
             </ul>
           </nav>
