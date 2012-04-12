@@ -6,21 +6,45 @@ class User < ActiveRecord::Base
 	attr_accessible :name, :email, :password, :password_confirmation
 
 # foreign key relations
-	has_many :ingredients, :foreign_key => "creator_id"
-	has_many :recipes, :foreign_key => "creator_id"
+	has_many :ingredients, 
+		:foreign_key => "creator_id"
+	
+	has_many :recipes, 
+		:foreign_key => "creator_id"
+	
 	has_many :logs
-	has_many :consumed_ingredients, :class_name => "Ingredient"
-	has_many :consumed_recipes, :class_name => "Recipe"
+	
+	has_many :recently_consumed_ingredients, 
+		:class_name => "Ingredient", 
+		:through => :logs,
+		:conditions => ['created_at > ?', 7.days.ago],
+		:source => :ingredient
+	
+	has_many :consumed_ingredients, 
+		:class_name => "Ingredient", 
+		:through => :logs,
+		:source => :ingredient
+	
+	has_many :consumed_recipes, 
+		:class_name => "Recipe"
+	
 
 # validations
-	validates :name, :presence => true
-	validates :email, :presence => true,
+	validates :name, 
+		:presence => true
+	
+	validates :email, 
+		:presence => true,
 		:format=> { :with => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
 		:uniqueness => {:case_sensitive => false }
-	validates :password, :presence => true,
+
+	validates :password, 
+		:presence => true,
 		:confirmation => true,
 		:length => {:minimum => 6}
-	validates :password_confirmation, :presence => true
+
+	validates :password_confirmation, 
+		:presence => true
 
 
 # callbacks

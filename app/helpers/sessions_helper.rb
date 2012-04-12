@@ -1,6 +1,29 @@
 module SessionsHelper
-	def sign_in(user)
-		cookies.permanent.signed[:remember_token] = [user.id, user.salt]
+
+	def redirect_if_not_signed_in
+		unless signed_in?
+			session[:redirection_url] = request.url
+			redirect_to signin_url
+		end
+	end
+
+	def redirect_if_not_admin
+		if signed_in?
+			unless current_user.admin?
+				redirect_to root_path
+			end
+		else
+			redirect_if_not_signed_in
+		end
+	end
+
+
+  def  sign_in(user,remember=true)
+		if remember
+			cookies.permanent.signed[:remember_token] = [user.id, user.salt]
+		else
+			session[:remember_token] = [user.id, user.salt]
+		end
 		self.current_user = user
 	end
 		

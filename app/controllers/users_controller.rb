@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 	include UserHelper
+
+  before_filter :redirect_if_not_signed_in, :only => :profile
+
 	def new
 		@title = "Sign Up"
 		@user = User.new
@@ -9,14 +12,9 @@ class UsersController < ApplicationController
   end
 
 	def profile
-		unless signed_in?
-			session[:redirection_url] = profile_url
-			redirect_to signin_url
-		else
-				@title = current_user.name
-				@user = current_user
-				render 'show'
-		end
+			@title = current_user.name
+			@user = current_user
+			render 'show'
 	end
 
   def create
@@ -42,6 +40,6 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@user = User.find_by_username(params[:id])
+  	@user = User.find(params[:id])
 	end
 end

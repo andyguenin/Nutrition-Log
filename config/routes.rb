@@ -1,9 +1,17 @@
 Nl::Application.routes.draw do
+
 	get "/home" => "pages#home", :as => :home
   get "/about" => "pages#about", :as => :about
   get "/team" => "pages#team", :as => :team
 
-  resources :users
+  scope '/profile' do
+		resources :ingredients, :module => :user
+#		resources :logs
+	end
+
+	resources :users
+#	resources :ingredients
+#	resources :recipes
 
 	get '/signup', :to => 'users#new'
 	get '/signin', :to => 'sessions#new'

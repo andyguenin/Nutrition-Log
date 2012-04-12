@@ -1,0 +1,2 @@
+module User::IngredientsHelper
+end
