@@ -1,8 +1,18 @@
 require 'digest'
 class User < ActiveRecord::Base
-	attr_accessor :password
-	attr_accessible :name, :email, :password, :password_confirmation, :username
 
+# accessor methods
+	attr_accessor :password
+	attr_accessible :name, :email, :password, :password_confirmation
+
+# foreign key relations
+	has_many :ingredients, :foreign_key => "creator_id"
+	has_many :recipes, :foreign_key => "creator_id"
+	has_many :logs
+	has_many :consumed_ingredients, :class_name => "Ingredient"
+	has_many :consumed_recipes, :class_name => "Recipe"
+
+# validations
 	validates :name, :presence => true
 	validates :email, :presence => true,
 		:format=> { :with => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
@@ -13,10 +23,10 @@ class User < ActiveRecord::Base
 	validates :password_confirmation, :presence => true
 
 
-
+# callbacks
 	before_save :encrypt_password
 
-
+# methods
 	def has_password?(sub_pwd)
 		encrypted_password == encrypt(sub_pwd)
 	end
@@ -25,10 +35,6 @@ class User < ActiveRecord::Base
 		user = find_by_email(email)
 		return nil if user.nil?
 		return user if user.has_password?(submitted_password)
-	end
-
-	def to_param
-		self.username
 	end
 
 	def self.authenticate_with_salt(id, cookie_salt)

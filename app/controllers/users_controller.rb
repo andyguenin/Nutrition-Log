@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 	end
 
   def create
-		@user = User.create(user_params.merge({:username => params[:user][:username]}))
+		@user = User.create(user_params)
 		if @user.save
 			sign_in @user
 			redirect_to @user

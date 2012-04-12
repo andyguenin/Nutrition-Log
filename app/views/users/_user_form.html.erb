@@ -1,4 +1,14 @@
 <%= form_for(user) do |f| %>
+	<% unless user.errors.empty? %>
+	<div id="user_error_message">
+		You have some errors.<br />
+		<ul>
+		<% user.errors.keys.each do |error_field| %>
+			<li><%= "#{error_field.to_s.gsub("_"," ").capitalize} #{user.errors[error_field].first}" %> </li>
+		<% end %>
+		</ul>
+	</div>
+	<%end%>
 	<div class = "field" >
 		<%= f.label :full_name %><br />
 		<%= f.text_field :name %>
@@ -14,10 +24,6 @@
 	<div class = "field" >
 		<%= f.label :password_confirmation %><br />
 		<%= f.password_field :password_confirmation %>
-	</div>
-	<div class = "field">
-		<%= f.label :username %><br />
-		<%= f.text_field :username %>
 	</div>
 	<div class = "actions">
 		<%= f.submit "Sign Up!"%>

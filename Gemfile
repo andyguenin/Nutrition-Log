@@ -17,6 +17,7 @@ end
 
 group :development do
 	gem 'annotate'
+	gem 'rb-readline'
 end
 
 

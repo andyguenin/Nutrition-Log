@@ -11,7 +11,48 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120403173953) do
+ActiveRecord::Schema.define(:version => 20120412184319) do
+
+  create_table "ingredients", :force => true do |t|
+    t.string   "name"
+    t.integer  "type_id"
+    t.integer  "creator_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "log_recipes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "recipe_id"
+    t.datetime "date"
+    t.integer  "servings"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "logs", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "ingredient_id"
+    t.integer  "servings"
+    t.datetime "date"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "recipes", :force => true do |t|
+    t.string   "name"
+    t.float    "serving_size"
+    t.integer  "creator_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "user_favorite_recipes", :force => true do |t|
+    t.integer  "recipe_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -20,7 +61,6 @@ ActiveRecord::Schema.define(:version => 20120403173953) do
     t.datetime "updated_at",         :null => false
     t.string   "encrypted_password"
     t.string   "salt"
-    t.string   "username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
