@@ -14,11 +14,12 @@ class User < ActiveRecord::Base
 	
 	has_many :logs
 	
-	has_many :recently_consumed_ingredients, 
-		:class_name => "Ingredient", 
+	has_many :recently_consumed_ingredients,
 		:through => :logs,
-		:conditions => ['created_at > ?', 7.days.ago],
-		:source => :ingredient
+		:class_name => "Ingredient",
+		:conditions => ['logs.created_at > ?', 7.days.ago],
+		:source => :ingredient,
+		:foreign_key => "ingredient_id"
 	
 	has_many :consumed_ingredients, 
 		:class_name => "Ingredient", 

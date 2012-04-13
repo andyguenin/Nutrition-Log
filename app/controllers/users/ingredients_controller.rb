@@ -1,4 +1,4 @@
-class User::IngredientsController < ApplicationController
+class Users::IngredientsController < ApplicationController
 
 	before_filter :redirect_if_not_signed_in
 

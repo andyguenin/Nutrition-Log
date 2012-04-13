@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  ingredient_id: 
+  servings: 1
+  date: 2012-04-12 13:49:57
+
+two:
+  user_id: 1
+  ingredient_id: 
+  servings: 1
+  date: 2012-04-12 13:49:57

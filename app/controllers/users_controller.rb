@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	include UserHelper
 
-  before_filter :redirect_if_not_signed_in, :only => :profile
+  before_filter :redirect_if_not_signed_in, :only => [:profile, :edit, :update, :destroy]
 
 	def new
 		@title = "Sign Up"
@@ -9,12 +9,18 @@ class UsersController < ApplicationController
   end
 
   def update
+		if current_user.update_attributes(user_params)
+			redirect_to profile_path
+		else
+			flash.now[:error] = "Fix the errors before updating"
+			@title = "Edit Profile"
+			render 'edit'
+		end
   end
 
 	def profile
 			@title = current_user.name
 			@user = current_user
-			render 'show'
 	end
 
   def create
@@ -23,7 +29,6 @@ class UsersController < ApplicationController
 			sign_in @user
 			redirect_to @user
 		else
-			p @user.errors
 			flash.now[:error] = "Fix the errors before clicking Sign Up"
 			@title = "Sign Up"
 			render 'new'
@@ -31,7 +36,8 @@ class UsersController < ApplicationController
   end
 
   def edit
-  end
+  	@title = "Edit Profile"
+	end
 
   def destroy
   end

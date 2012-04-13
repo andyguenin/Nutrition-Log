@@ -4,13 +4,16 @@ Nl::Application.routes.draw do
   get "/about" => "pages#about", :as => :about
   get "/team" => "pages#team", :as => :team
 
-  scope '/profile' do
-		resources :ingredients, :module => :user
+  
+	resources :ingredients, :only => [:index, :show]
+
+	scope '/profile' do
+		resources :ingredients, :module => :users, :only => [:index, :create, :new]
+		resource :users, :path => '', :only => [:edit, :update]
 #		resources :logs
 	end
 
-	resources :users
-#	resources :ingredients
+	resources :users, :except => [:edit, :update]
 #	resources :recipes
 
 	get '/signup', :to => 'users#new'

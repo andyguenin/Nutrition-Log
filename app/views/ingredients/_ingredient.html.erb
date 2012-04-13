@@ -1,0 +1,7 @@
+<div id="ingredient_<%=ingredient.id%>">
+	<%= ingredient.name %>
+	<br />
+	<% if ingredient.creator != 0 %>
+		<i>Created by <%= link_to ingredient.creator.name, ingredient.creator %></i>
+	<% end %>
+</div>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  serving_size: 1.5
+  creator_id: 1
+
+two:
+  name: MyString
+  serving_size: 1.5
+  creator_id: 1
