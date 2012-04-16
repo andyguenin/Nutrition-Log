@@ -26,6 +26,7 @@
 		<%= f.password_field :password_confirmation %>
 	</div>
 	<div class = "actions">
-		<%= f.submit "Sign Up!"%>
+		<% button_text ||= "Sign Up!" %>
+		<%= f.submit button_text%>
 	</div>
 <% end %>

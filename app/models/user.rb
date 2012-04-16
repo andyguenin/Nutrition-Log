@@ -25,9 +25,13 @@ class User < ActiveRecord::Base
 		:class_name => "Ingredient", 
 		:through => :logs,
 		:source => :ingredient
-	
+
+	has_many :log_recipes
+
 	has_many :consumed_recipes, 
-		:class_name => "Recipe"
+		:class_name => "Recipe",
+		:through => :log_recipes,
+		:source => :recipe
 	
 
 # validations
@@ -42,11 +46,20 @@ class User < ActiveRecord::Base
 	validates :password, 
 		:presence => true,
 		:confirmation => true,
-		:length => {:minimum => 6}
+		:length => {:minimum => 6},
+		:if => :save_password?
 
 	validates :password_confirmation, 
-		:presence => true
+		:presence => true,
+		:if => :save_password?
 
+
+	def add_recipe(recipe)
+		self.consumed_recipes << recipe
+		recipe.ingredients.each do |i|
+			self.consumed_ingredients << i
+		end
+	end
 
 # callbacks
 	before_save :encrypt_password
@@ -68,6 +81,11 @@ class User < ActiveRecord::Base
 	end
 
 	private
+
+		def save_password?
+			new_record? || !password.nil?	|| !password_confirmation.nil?
+		end
+
 		def encrypt_password
 			self.salt = make_salt unless has_password?(password)
 			self.encrypted_password = encrypt(password)

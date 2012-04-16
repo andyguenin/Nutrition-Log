@@ -5,15 +5,8 @@ Nl::Application.routes.draw do
   get "/team" => "pages#team", :as => :team
 
   
-	resources :ingredients, :only => [:index, :show]
-
-	scope '/profile' do
-		resources :ingredients, :module => :users, :only => [:index, :create, :new]
-		resource :users, :path => '', :only => [:edit, :update]
-#		resources :logs
-	end
-
-	resources :users, :except => [:edit, :update]
+	resources :ingredients, :only => [:index, :show, :new, :create]
+	resources :users
 #	resources :recipes
 
 	get '/signup', :to => 'users#new'

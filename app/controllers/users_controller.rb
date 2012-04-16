@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 		else
 			flash.now[:error] = "Fix the errors before updating"
 			@title = "Edit Profile"
+			@user = current_user
 			render 'edit'
 		end
   end
@@ -37,9 +38,15 @@ class UsersController < ApplicationController
 
   def edit
   	@title = "Edit Profile"
+		@user = current_user
+		puts @user
 	end
 
   def destroy
+		user = current_user
+		sign_out
+	  user.delete
+		redirect_to root_path
   end
 
   def index
