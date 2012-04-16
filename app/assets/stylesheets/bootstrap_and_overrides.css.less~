@@ -7,8 +7,6 @@ body { padding-top: 60px; }
 @iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
 @iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
 
-@navBarBgStart: #3D368B;
-@navBarBgEnd: #232051;
 
 html {
   overflow-y: scroll;
@@ -98,7 +96,5 @@ footer ul li {
   color: #fff;
   text-decoration: none;
 }
-
-
 
 
