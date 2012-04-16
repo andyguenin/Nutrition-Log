@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.1'
 #gem 'bootstrap-sass'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development, :test do

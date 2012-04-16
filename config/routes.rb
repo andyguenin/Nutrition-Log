@@ -7,7 +7,7 @@ Nl::Application.routes.draw do
   
 	resources :ingredients, :only => [:index, :show, :new, :create]
 	resources :users
-#	resources :recipes
+	resources :recipes
 
 	get '/signup', :to => 'users#new'
 	get '/signin', :to => 'sessions#new'

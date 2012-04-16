@@ -1,0 +1,17 @@
+<h1>My ingredients</h1>
+
+<%= link_to "Create a new ingredient", new_ingredient_path %>
+<div id="created_ingredients">
+	<h2>Ingredients that I created</h2>
+	<% @created_ingredients.each do |i| %>
+		<%= render :partial => 'ingredient/ingredient', :locals => {:ingredient => i} %>
+	<% end %>
+</div>
+
+
+<div id="consumed_ingredients">
+	<h2>Ingredients that I've consumed in the past week</h2>
+	<% @created_ingredients.each do |i| %>
+		<%= render :partial => 'ingredient/ingredient', :locals => {:ingredient => i} %>
+	<% end %>
+</div>

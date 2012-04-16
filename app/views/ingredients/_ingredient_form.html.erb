@@ -1,0 +1,24 @@
+<%= form_for(ingredient) do |f| %>
+	<% unless ingredient.errors.empty? %>
+	<div id = "ingredient_error_message">
+	You have some errors.<br />
+	<ul>
+	<% ingredient.errors.keys.each do |error_field| %>
+		<li><%= "#{error_field.to_s.gsub("_", " ").capitalize} #{ingredient.errors[error_field].first}" %> </li>
+			<% end %>
+			</ul>
+			</div>
+			<% end %>
+
+			<div class = "field" >
+				<%= f.label :name %><br />
+				<%= f.text_field :name %>
+			</div>
+			<div class = "field" >
+				<%= f.label :type %><br />
+				<%= f.text_field :type %>
+			</div>
+			<div class = "actions" >
+				<%= f.submit "Create Ingredient" %>
+			</div>
+		<%end%>

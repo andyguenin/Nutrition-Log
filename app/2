@@ -1,0 +1,23 @@
+class IngredientsController < ApplicationController
+  def index
+		@recently_add_ingredients = Ingredient.recently_added
+		if signed_in?
+			@recent_ingredients = current_user.recently_consumed_ingredients
+			render "index_user"
+		else
+		
+			render "index_public"
+		end
+  end
+
+  def show
+		@ingredient = Ingredient.find(params[:id])
+  end
+
+  def new
+  end
+
+  def create
+  end
+
+end
