@@ -18,7 +18,7 @@ body {
 }
 .team{
         background-color: #eee;
-        padding: 200px;
+        padding: 20px;
         margin: 30 -30px;
         -webkit-border-radius: 10px 10px 10px 10px;
            -moz-border-radius: 10px 10px 10px 10px;
@@ -84,7 +84,7 @@ th {padding-right:20px; }
 
 /* header */
 
-logo {
+.logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
@@ -95,7 +95,8 @@ logo {
   font-weight: bold;
   line-height: 1;
 }
-
+.logo a:visited { color: #fff}
+.logo .blue { font-size: .2em;color: @blue;display: inline;}
 /* footer */
 
 footer {

@@ -1,3 +1,8 @@
+<div class = "container">
+<div class = "content">
+<div class = "row">
+<div class = "login-form">
+
 <%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> /User</legend>
@@ -43,3 +48,7 @@
     </div>
   </fieldset>
 <% end %>
+</div>
+</div>
+</div>
+</div>
