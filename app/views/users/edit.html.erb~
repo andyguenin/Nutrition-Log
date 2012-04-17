@@ -1,0 +1,4 @@
+<h1>Edit Profile</h1>
+
+<%= link_to "Delete Profile", user_path(current_user), :method => :delete, :confirm => "Are you sure that you want to delete your profile? This action cannot be undone"%>
+<%= render :partial => 'user_form', :locals => {:user => @user, :button_text => "Update Profile"} %>
