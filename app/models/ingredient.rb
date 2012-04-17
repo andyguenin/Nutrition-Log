@@ -1,7 +1,4 @@
 class Ingredient < ActiveRecord::Base
-	searchable do 
-		text :name
-	end
 	belongs_to :creator, :class_name => "User"
   has_many :logs, :dependent => :destroy
 	has_many :consumers, :class_name => "User", :through => :logs
