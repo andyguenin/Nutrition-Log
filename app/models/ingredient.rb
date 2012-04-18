@@ -8,6 +8,8 @@ class Ingredient < ActiveRecord::Base
 	has_many :recipes,
 		:through => :recipe_ingredient_joins
 
+	has_many :nutritions
+
 	validates :name,
 		:presence => true
 

@@ -96,7 +96,7 @@ th {padding-right:20px; }
   line-height: 1;
 }
 .logo a:visited { color: #fff}
-.logo .blue { font-size: .2em;color: @blue;display: inline;}
+.logo .blue { font-size: .5em;color: @blue;display: inline;}
 /* footer */
 
 footer {

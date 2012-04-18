@@ -18,6 +18,11 @@ class IngredientsController < ApplicationController
   def show
 		@ingredient = Ingredient.find(params[:id])
 		@title = @ingredient.name
+		
+		    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @ingredient }
+          end
   end
 
   def new

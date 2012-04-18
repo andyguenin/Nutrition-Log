@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 	def profile
 			@title = current_user.name
 			@user = current_user
+			@count = Ingredient.count
 	end
 
   def create
