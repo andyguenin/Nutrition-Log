@@ -1,10 +1,10 @@
 class Log < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :ingredient
-
+	belongs_to :log_recipe
 	validates :servings,
 		:presence => true
 
-	validates :Date,
+	validates :date,
 		:presence => true
 end

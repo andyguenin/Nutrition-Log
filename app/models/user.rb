@@ -54,9 +54,10 @@ class User < ActiveRecord::Base
 		:if => :save_password?
 
 
-	def add_recipe(recipe)
-		self.consumed_recipes << recipe
-		recipe.ingredients.each do |i|
+	def add_recipe(r)
+		self.consumed_recipes << r
+		r.ingredients.each do |i|
+			self.logs.create({:ingredient => i, :servings => 1, :date => Time.now})
 			self.consumed_ingredients << i
 		end
 	end

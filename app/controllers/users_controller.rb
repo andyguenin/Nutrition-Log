@@ -54,6 +54,7 @@ class UsersController < ApplicationController
   end
 
   def show
+	redirect_to profile_path if signed_in? and params[:id] == current_user.id
   	@user = User.find(params[:id])
 	end
 end

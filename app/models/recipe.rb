@@ -1,7 +1,4 @@
 class Recipe < ActiveRecord::Base
-	searchable do 
-		text :name
-	end
 	belongs_to :creator, :class_name => "User"
 	has_many :log_recipe
 
