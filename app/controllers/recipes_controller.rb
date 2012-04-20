@@ -28,7 +28,7 @@ class RecipesController < ApplicationController
 			redirect_to @r
 		else
 			flash.now[:error] = "You had an error creating your recipe"
-			@title = "Crate recipe"
+			@title = "Create recipe"
 			render 'new'
 		end
 	end

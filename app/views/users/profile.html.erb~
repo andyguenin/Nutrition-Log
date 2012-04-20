@@ -27,7 +27,7 @@
            <%  recipe.ingredients.each do |ingredient| %>
           <li><%= link_to ingredient.name.titleize, ingredient %></li>
            <% end %>
-           <i>Created by <%=  recipe.created_at.strftime('%m/%d/%Y') %></i>
+           <i class="pull-right">Created on <%=  recipe.created_at.strftime('%m/%d/%Y')%></i>
            </td>
         </tr>
 <% end %>
@@ -37,31 +37,51 @@
 </div>
 </div>
 <% if signed_in? %>
-<div class="span8">
+<div class="span5">
 <div class="hero-unit">
-<h2>My Nutrition Log</h2>
+<h2>My Nutrition Log <%= link_to "Add A Meal", :ingredients, :class => 'btn btn-primary pull-right' %></h2>
 <br>
+
 <table class ="table table-striped">
           <thead>
 <tr>
-	<th>Item Name</th>
-    <th>Category Name</th>
-    <th>Nominal Price</th>
-    <th>Options</th>
-	<th>Unique Item ID</th>
-    <th></th>
-    <th></th>
-    <th></th>
+	<th>Meal Name</th>
+    <th>Consumed At</th>
+
+
 
   </tr>
         </thead>
-<%  Ingredient.recently_added.each do |ingredient| %>
+<%  current_user.log_recipes.each do |recipe| %>
   <tr>
-    <td><%= ingredient.name %></td>
-    <td><%= ingredient.id %></td>
-    <td><%= ingredient.id %></td>
-    <td><%= ingredient.id %></td>
-    <td></td>
+    <td><%= Recipe.find(params[:id]=recipe.recipe_id).name.titleize %></td>
+    <td><%= recipe.created_at.strftime('%m/%d/%Y %I:%M %p') %></td>
+
+  </tr>
+<% end %>
+</table>
+</table>
+
+<% end %>
+</div>
+</div>
+<% if signed_in? %>
+<div class="span3">
+<div class="hero-unit">
+<h2>Other Active Users</h2>
+<br>
+
+<table class ="table table-striped">
+          <thead>
+<tr>
+	<th>Users</th>
+  </tr>
+        </thead>
+<%  User.limit(5).each do |user| %>
+  <tr>
+    
+    <td><%= link_to User.random.name, user %></td>
+
   </tr>
 <% end %>
 </table>

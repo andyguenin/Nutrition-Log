@@ -7,7 +7,16 @@ class UsersController < ApplicationController
 		@title = "Sign Up"
 		@user = User.new
   end
-
+     def show
+		@user = User.find(params[:id])
+		@title = @user.name
+		
+      respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @user }
+          end
+    end	
+    
   def update
 		if current_user.update_attributes(user_params)
 			redirect_to profile_path
@@ -53,8 +62,5 @@ class UsersController < ApplicationController
   def index
   end
 
-  def show
-	redirect_to profile_path if signed_in? and params[:id] == current_user.id
-  	@user = User.find(params[:id])
-	end
+
 end

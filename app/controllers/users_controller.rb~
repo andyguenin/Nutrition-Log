@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 	def profile
 			@title = current_user.name
 			@user = current_user
+			@count = Ingredient.count
 	end
 
   def create
@@ -52,7 +53,13 @@ class UsersController < ApplicationController
   def index
   end
 
-  def show
-  	@user = User.find(params[:id])
-	end
+     def show
+		@user = User.find(params[:id])
+		@title = @user.name
+		
+      respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @user }
+          end
+    end	
 end
