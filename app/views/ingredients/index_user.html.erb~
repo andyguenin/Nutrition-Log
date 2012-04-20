@@ -4,7 +4,7 @@
 <div id="created_ingredients">
 	<h2>Ingredients that I created</h2>
 	<% @created_ingredients.each do |i| %>
-		<%= render :partial => 'ingredients/ingredient', :locals => {:ingredient => i} %>
+		<%= render :partial => 'ingredient/ingredient', :locals => {:ingredient => i} %>
 	<% end %>
 </div>
 
@@ -12,6 +12,6 @@
 <div id="consumed_ingredients">
 	<h2>Ingredients that I've consumed in the past week</h2>
 	<% @created_ingredients.each do |i| %>
-		<%= render :partial => 'ingredients/ingredient', :locals => {:ingredient => i} %>
+		<%= render :partial => 'ingredient/ingredient', :locals => {:ingredient => i} %>
 	<% end %>
 </div>
