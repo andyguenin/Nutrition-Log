@@ -68,7 +68,7 @@
 <% if signed_in? %>
 <div class="span3">
 <div class="hero-unit">
-<h2>Other Active Users</h2>
+<h2>Selected Users</h2>
 <br>
 
 <table class ="table table-striped">
@@ -77,10 +77,10 @@
 	<th>Users</th>
   </tr>
         </thead>
-<%  User.limit(5).each do |user| %>
+<%  User.find(:select => "count(recipes) as recipe_count", :order => "recipe_count").each do |user| %>
   <tr>
     
-    <td><%= link_to User.random.name, user %></td>
+    <td><%= link_to user.name, user %></td>
 
   </tr>
 <% end %>

@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link rel="shortcut icon" href="/favicon.ico" />
 </head>
 <body>
     <header class="navbar navbar-fixed-top">
@@ -15,6 +16,7 @@
           <%= link_to "Nutrition Log", '/home', id: "logo" %>
 	<%else%>
 	  <%= link_to "Nutrition Log", :profile, id: "logo" %>
+	<%end%>
 	  </div>
           <nav>
             <ul class="nav pull-right">
