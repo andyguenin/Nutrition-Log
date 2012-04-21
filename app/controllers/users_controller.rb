@@ -32,6 +32,7 @@ class UsersController < ApplicationController
 			@title = current_user.name
 			@user = current_user
 			@count = Ingredient.count
+			@recentusers = Ingredient.recently_added.group("creator_id")
 	end
 
   def create

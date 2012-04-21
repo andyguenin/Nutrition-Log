@@ -68,7 +68,7 @@
 <% if signed_in? %>
 <div class="span3">
 <div class="hero-unit">
-<h2>Selected Users</h2>
+<h2>Active Users</h2>
 <br>
 
 <table class ="table table-striped">
@@ -77,10 +77,15 @@
 	<th>Users</th>
   </tr>
         </thead>
-<%  User.limit(5).each do |user| %>
+<% @recentusers.limit(10).each do |user| %>
   <tr>
-    
-    <td><%= link_to user.name, user %></td>
+    <% if user.creator_id != nil%>
+    <% if user.creator_id = current_user.id %>
+    <td><%= link_to "Me", current_user %>
+    <% else %>    
+    <td><%= link_to User.find(params[:id] =user.creator_id).name, User.find(params[:id] = user.creator_id)  %></td>
+<%end%>
+<%end%>
 
   </tr>
 <% end %>

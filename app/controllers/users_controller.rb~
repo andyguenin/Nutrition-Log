@@ -7,7 +7,16 @@ class UsersController < ApplicationController
 		@title = "Sign Up"
 		@user = User.new
   end
-
+     def show
+		@user = User.find(params[:id])
+		@title = @user.name
+		
+      respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @user }
+          end
+    end	
+    
   def update
 		if current_user.update_attributes(user_params)
 			redirect_to profile_path
@@ -23,6 +32,7 @@ class UsersController < ApplicationController
 			@title = current_user.name
 			@user = current_user
 			@count = Ingredient.count
+			@recentusers = Ingredient.recently_added.group("creator_id").name
 	end
 
   def create
@@ -53,13 +63,5 @@ class UsersController < ApplicationController
   def index
   end
 
-     def show
-		@user = User.find(params[:id])
-		@title = @user.name
-		
-      respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
-          end
-    end	
+
 end
