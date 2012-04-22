@@ -51,11 +51,12 @@
     <th></th>
   </tr>
         </thead>
-<%  current_user.log_recipes.each do |recipe| %>
+<%  current_user.log_recipes.limit(30).each do |recipe| %>
   <tr>
     <td><%=  Recipe.find(params[:id]=recipe.recipe_id).name.titleize %></td>
     <td><%= recipe.created_at.strftime('%m/%d/%Y %I:%M %p') %></td>
     <td> <%= link_to "View Item",  Recipe.find(params[:id]=recipe.recipe_id), :class => 'btn btn-primary btn-mini pull-right' %></td>
+    <td> <%= link_to "Delete",  Recipe.find(params[:id]=recipe.recipe_id), :class => 'btn btn-danger btn-mini pull-right' %></td>
   </tr> 
 <% end %>
 </table>
@@ -81,10 +82,13 @@
   <tr>
     <% if user.creator_id != nil%>
     <% if user.creator_id == current_user.id %>
-       <td><%= link_to "Me", current_user %>
+       <td><%= "Me" %></td>
+       <td><%= link_to "View Profile", User.find(params[:id] = user.creator_id), :class =>"btn btn-mini btn-primary" %></td>
+        
     <% else %>    
-        <td><%= link_to User.find(params[:id] =user.creator_id).name, User.find(params[:id] = user.creator_id)  %></td>
-        <td></td>
+        <td><%= User.find(params[:id] =user.creator_id).name %></td>
+        <td><%= link_to "View Profile", User.find(params[:id] = user.creator_id), :class =>"btn btn-mini btn-primary" %></td>
+        
     <%end%>
 <%end%>
 

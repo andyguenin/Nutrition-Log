@@ -6,35 +6,43 @@
 <form class="well">
   <h2>Search</h2>
   <input type="text" class="span2" placeholder="Find an Ingredient..."><br>
-  <button type="submit" class="btn btn-success ">Search</button>
+  <button type="submit" class="btn btn-primary ">Search</button>
   <br>
   <br>
-  <%= link_to "Create a new ingredient", new_ingredient_path, :class => 'btn btn-primary' %>
+  <%= link_to "Create a new ingredient", new_ingredient_path, :class => 'btn btn-success' %>
+  <br>
+  <br>
+  <%= link_to "Create a new recipe", new_recipe_path, :class => 'btn btn-success' %>
 </form>
 
 </div>
-<div class = "span3">
+<div class = "span4">
 <div class="hero-unit">
 
 <div id="created_ingredients">
-	<h2>My Ingredients</h2>
+	<h2>My Ingredients and Recipes</h2>
 	<br>
 	
 	
-	<table class = "table table-striped">
-    <thead>
-	<tr>
-	<th></th>
-	<th></th>
-	</tr>
-	</thead>
-	<% @created_ingredients.each do |i| %>
-	<tr>
-    <td><%= i.name.titleize %></td>
-    <td><%= link_to "Delete", i, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
-    </tr>
-	<% end %>
-	</table>
+<table class ="table table-striped">
+        <thead>
+	        <tr>
+	        <th></th>
+          	</tr>
+        </thead>
+        
+    <%  current_user.recipes.order("created_at DESC").limit(10).each do |recipe| %>
+         <tr>
+           <td><%= recipe.name.titleize%></td>
+        </tr>
+        <tr>
+         <%  recipe.ingredients.each do |ingredient| %>
+          <td><%= ingredient.name.titleize %></td>
+         </tr>
+         <% end %>
+         
+<% end %>
+</table>
 </div>
 </div>
 </div>
@@ -42,20 +50,31 @@
 <div class = "span6">
 <div class = "hero-unit">
 <div id="consumed_ingredients">
-	<h2>Ingredients that I've consumed in the past week</h2>
+	<h2>Search Results</h2>
 	<table class = "table table-striped">
     <thead>
 	<tr>
 	<th></th>
 	<th></th>
+    <th></th>
 	</tr>
 	</thead>
-	<% @created_ingredients.each do |i| %>
+	
 	<tr>
-    <td><%= i.name.titleize %></td>
-    <td><%= link_to "Delete", i, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
+    <td>Hard Coded Example One</td>
+    <td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
+    <td><%= link_to "Delete", root_path, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
     </tr>
-	<% end %>
+    <tr>
+    <td>Hard Coded Example Two</td>
+    <td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
+    <td><%= link_to "Delete", root_path, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
+    </tr>
+<tr>
+    <td>Hard Coded Example Three</td>
+    <td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
+    <td><%= link_to "Delete", root_path, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
+    </tr>
 	</table>
 </div>
 </div>
