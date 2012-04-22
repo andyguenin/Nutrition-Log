@@ -39,7 +39,7 @@
 <% if signed_in? %>
 <div class="span5">
 <div class="hero-unit">
-<h2>My Nutrition Log <%= link_to "Add A Meal", :ingredients, :class => 'btn btn-primary pull-right' %></h2>
+<h2>My Nutrition Log <%= link_to "Add A Meal", :ingredients, :class => 'btn btn-success pull-right' %></h2>
 <br>
 
 <table class ="table table-striped">
@@ -47,17 +47,15 @@
 <tr>
 	<th>Meal Name</th>
     <th>Consumed At</th>
-
-
-
+    <th></th>
   </tr>
         </thead>
 <%  current_user.log_recipes.each do |recipe| %>
   <tr>
-    <td><%= Recipe.find(params[:id]=recipe.recipe_id).name.titleize %></td>
+    <td><%=  Recipe.find(params[:id]=recipe.recipe_id).name.titleize %></td>
     <td><%= recipe.created_at.strftime('%m/%d/%Y %I:%M %p') %></td>
-
-  </tr>
+    <td> <%= link_to "View Item",  Recipe.find(params[:id]=recipe.recipe_id), :class => 'btn btn-primary btn-mini pull-right' %></td>
+  </tr> 
 <% end %>
 </table>
 </table>
@@ -80,11 +78,11 @@
 <% @recentusers.limit(10).each do |user| %>
   <tr>
     <% if user.creator_id != nil%>
-    <% if user.creator_id = current_user.id %>
-    <td><%= link_to "Me", current_user %>
+    <% if user.creator_id == current_user.id %>
+       <td><%= link_to "Me", current_user %>
     <% else %>    
-    <td><%= link_to User.find(params[:id] =user.creator_id).name, User.find(params[:id] = user.creator_id)  %></td>
-<%end%>
+        <td><%= link_to User.find(params[:id] =user.creator_id).name, User.find(params[:id] = user.creator_id)  %></td>
+    <%end%>
 <%end%>
 
   </tr>
