@@ -6,6 +6,7 @@ class IngredientsController < ApplicationController
   def index
 		@recently_add_ingredients = Ingredient.recently_added
 		@title = "Ingredients"
+		@recipes = Recipe.search(params[:search])
 		if signed_in?
 			@created_ingredients = current_user.ingredients
 			@consumed_ingredients = current_user.recently_consumed_ingredients
@@ -39,5 +40,11 @@ class IngredientsController < ApplicationController
 			render 'new'
 		end
   end
+    def destroy
+		
+	  Ingredient.find(params[:id]).delete
+		redirect_to ingredients_path
+  end
+
 
 end
