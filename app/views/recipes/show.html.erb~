@@ -4,17 +4,19 @@
 <div class="row-fluid">
     <div class="span12">
         <div class ="hero-unit">
-        <h2>Recipes <%= link_to "Consume", current_user.add_recipe(@recipe), :class => 'btn btn-success pull-right' %></h2>
+        <h2>Recipes <%= link_to "Consume", :recipe, :class => 'btn btn-success pull-right' %></h2>
         <table class ="table table-striped">
         <thead>
 	        <tr>
-	        <th> </th>
+	        <th>Nutrition Name </th>
+	        <th> Amount </th>
           	</tr>
         </thead>
         
         <%  @recipe.ingredients.each do |ingredient| %>
          <tr>
            <td><%= link_to ingredient.name.titleize, ingredient %></td>
+           <td><% ingredient.quantity %></td>
         </tr>
 <% end %>
 </table>

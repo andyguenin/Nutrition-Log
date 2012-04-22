@@ -19,6 +19,10 @@
            <td><%= nutrition.quantity %></td>
         </tr>
 <% end %>
+        <tr>
+           <td>Salt</td>
+           <td>12</td>
+        </tr>
 </table>
 
         </div>

@@ -36,13 +36,16 @@
     <%  current_user.recipes.order("created_at DESC").limit(10).each do |recipe| %>
          <tr>
            <td><%= recipe.name.titleize%></td>
+           <td><%= link_to "View Item", recipe, :class => "btn btn-primary btn-mini" %></td>
            <td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
             <td><%= link_to "Delete", root_path, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
     
         </tr>
         <tr>
          <%  recipe.ingredients.each do |ingredient| %>
+         
           <td><%= ingredient.name.titleize %></td>
+          <td><%= link_to "View Item", ingredient, :class => "btn btn-primary btn-mini" %></td>
           <td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
     <td><%= link_to "Delete", root_path, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
     
@@ -64,22 +67,26 @@
 	<tr>
 	<th></th>
 	<th></th>
+	<th></th>
     <th></th>
 	</tr>
 	</thead>
 	
 	<tr>
     <td>Hard Coded Example One</td>
+    <td><%= link_to "View Item", root_path, :class => "btn btn-primary btn-mini" %></td>
     <td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
     <td><%= link_to "Delete", root_path, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
     </tr>
     <tr>
     <td>Hard Coded Example Two</td>
+    <td><%= link_to "View Item", root_path, :class => "btn btn-primary btn-mini" %></td>
     <td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
     <td><%= link_to "Delete", root_path, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
     </tr>
 <tr>
     <td>Hard Coded Example Three</td>
+    <td><%= link_to "View Item", root_path, :class => "btn btn-primary btn-mini" %></td>
     <td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
     <td><%= link_to "Delete", root_path, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
     </tr>
