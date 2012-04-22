@@ -48,6 +48,7 @@
 	<th>Meal Name</th>
     <th>Consumed At</th>
     <th></th>
+    <th></th>
   </tr>
         </thead>
 <%  current_user.log_recipes.each do |recipe| %>
@@ -73,6 +74,7 @@
           <thead>
 <tr>
 	<th>Users</th>
+	<th></th>
   </tr>
         </thead>
 <% @recentusers.limit(10).each do |user| %>
@@ -82,6 +84,7 @@
        <td><%= link_to "Me", current_user %>
     <% else %>    
         <td><%= link_to User.find(params[:id] =user.creator_id).name, User.find(params[:id] = user.creator_id)  %></td>
+        <td></td>
     <%end%>
 <%end%>
 

@@ -39,7 +39,7 @@
 <% if signed_in? %>
 <div class="span5">
 <div class="hero-unit">
-<h2>My Nutrition Log <%= link_to "Add A Meal", :ingredients, :class => 'btn btn-primary pull-right' %></h2>
+<h2>My Nutrition Log <%= link_to "Add A Meal", :ingredients, :class => 'btn btn-success pull-right' %></h2>
 <br>
 
 <table class ="table table-striped">
@@ -47,6 +47,7 @@
 <tr>
 	<th>Meal Name</th>
     <th>Consumed At</th>
+    <th></th>
     <th></th>
   </tr>
         </thead>
@@ -73,6 +74,7 @@
           <thead>
 <tr>
 	<th>Users</th>
+	<th></th>
   </tr>
         </thead>
 <% @recentusers.limit(10).each do |user| %>
@@ -82,6 +84,7 @@
        <td><%= link_to "Me", current_user %>
     <% else %>    
         <td><%= link_to User.find(params[:id] =user.creator_id).name, User.find(params[:id] = user.creator_id)  %></td>
+        <td></td>
     <%end%>
 <%end%>
 

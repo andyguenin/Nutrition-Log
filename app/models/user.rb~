@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
 	def add_recipe(r)
 		self.consumed_recipes << r
 		r.ingredients.each do |i|
-			self.logs.create(:ingredient_id => i, :servings => 1, :date => Time.now)
+			self.logs.create(:ingredient_id => i.id, :servings => 1, :date => Time.now)
 			self.consumed_ingredients << i
 		end
 	end

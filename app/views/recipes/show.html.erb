@@ -1,2 +1,24 @@
-<h1>Recipe#show</h1>
-<p>Find me in app/views/recipe/show.html.erb</p>
+<h1><%= @recipe.name.titleize %></h1>
+<br>
+<br>
+<div class="row-fluid">
+    <div class="span12">
+        <div class ="hero-unit">
+        <h2 >Recipes <div class = "btn btn-success pull-right">Consume</div></h2> 
+        <table class ="table table-striped">
+        <thead>
+	        <tr>
+	        <th> </th>
+          	</tr>
+        </thead>
+        
+        <%  @recipe.ingredients.each do |ingredient| %>
+         <tr>
+           <td><%= link_to ingredient.name.titleize, ingredient %></td>
+        </tr>
+<% end %>
+</table>
+
+        </div>
+    </div>
+</div>
