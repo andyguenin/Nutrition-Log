@@ -32,8 +32,9 @@
 	        <th></th>
           	</tr>
         </thead>
-        
-    <%  current_user.recipes.order("created_at DESC").limit(10).each do |recipe| %>
+		<% cu = current_user.recipes.order("created_at DESC").limit(10)%>
+		<%= "No recipes found" if cu.empty? %>
+		<% cu.each do |recipe| %>
          <tr>
            <td><%= recipe.name.titleize%></td>
            <td><%= link_to "View Item", recipe, :class => "btn btn-primary btn-mini" %></td>
