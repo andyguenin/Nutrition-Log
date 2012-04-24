@@ -1,5 +1,4 @@
 class RecipesController < ApplicationController
-	include RecipesHelper
 	
 	before_filter :redirect_if_not_signed_in, :except => :index
 	
@@ -11,7 +10,6 @@ class RecipesController < ApplicationController
 
 	def new
 		@title = "Create recipe"
-		@recipe = Recipe.new
 	end
 	
      def show
@@ -25,15 +23,19 @@ class RecipesController < ApplicationController
     end		
 
 	def create
-		@r = Recipe.create(recipe_params)
+		@r = Recipe.create(params[:recipe])
 		if(@r.save)
-			redirect_to  @r
+			redirect_to @r
 		else
-			flash.now[:error] = "Fix the errors before saving the ingredient"
+			flash.now[:error] = "You had an error creating your recipe"
+			@title = "Create recipe"
 			render 'new'
 		end
 	end
-	
+
+	def search
+		render :partial => "search_results", :locals => {:recipes => Recipe.search(params[:q])}
+	end
 
 	def add_ingredient
 		@recipe = params[:recipe_id]

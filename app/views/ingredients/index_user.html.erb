@@ -1,7 +1,7 @@
 <script language ="javascript">
 	$(function($) { 
 		$("#search-button").click(function() {
-			$("#search-results").load("/<%= recipe_search_path %>?q=" + $("#search-text").val());
+			$("#consumed_ingredients").load("<%= recipe_search_path %>?q=" + $("#search-text").val());
 		});
 	});	
 </script>
@@ -71,36 +71,8 @@
 <div class = "span6">
 <div class = "hero-unit">
 <div id="consumed_ingredients">
-	<h2>Search Results</h2>
-	<table class = "table table-striped">
-    <thead>
-	<tr>
-	<th></th>
-	<th></th>
-	<th></th>
-    <th></th>
-	</tr>
-	</thead>
-	
-	<tr id="search-results">
-    <td>Hard Coded Example One</td>
-    <td><%= link_to "View Item", root_path, :class => "btn btn-primary btn-mini" %></td>
-    <td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
-    <td><%= link_to "Delete", root_path, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
-    </tr>
-    <tr>
-    <td>Hard Coded Example Two</td>
-    <td><%= link_to "View Item", root_path, :class => "btn btn-primary btn-mini" %></td>
-    <td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
-    <td><%= link_to "Delete", root_path, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
-    </tr>
-<tr>
-    <td>Hard Coded Example Three</td>
-    <td><%= link_to "View Item", root_path, :class => "btn btn-primary btn-mini" %></td>
-    <td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
-    <td><%= link_to "Delete", root_path, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
-    </tr>
-	</table>
+	Search for recipes on the left hand side
+
 </div>
 </div>
 </div>
