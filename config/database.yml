@@ -36,9 +36,10 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: nl_production
+  database: staan
   pool: 5
   username: staan
   password: guenin
   socket: /var/run/mysqld/mysqld.sock
   host: fling.seas.upenn.edu
+  port: 3305
