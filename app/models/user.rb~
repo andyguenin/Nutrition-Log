@@ -104,8 +104,8 @@ class User < ActiveRecord::Base
 
 	def findTotal(list, condition)
 		total = 0
-		list.each do |l|
-			l.ingredient.nutritions.each do |n|
+		 self.logs.find(:all, :conditions => ["created_at > ?", 1.day.ago]).each do |l|
+			l.nutritions.each do |n|
 				if n.name == condition
 					total = total + n.quantity
 				end
