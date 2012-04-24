@@ -7,7 +7,7 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-group :development, :test do
+group :test do
 	gem 'mysql2'
 	gem 'therubyracer'
 end
