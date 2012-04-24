@@ -40,6 +40,7 @@ class IngredientsController < ApplicationController
 			render 'new'
 		end
   end
+  
     def destroy
 		
 	  Ingredient.find(params[:id]).delete

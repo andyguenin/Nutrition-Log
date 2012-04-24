@@ -1,10 +1,10 @@
-<%= form_for(recipe) do |f| %>
-	<% unless recipe.errors.empty? %>
-	<div id = "recipe_error_message">
+<%= form_for(ingredient) do |f| %>
+	<% unless ingredient.errors.empty? %>
+	<div id = "ingredient_error_message">
 	You have some errors.<br />
 	<ul>
-	<% recipe.errors.keys.each do |error_field| %>
-		<li><%= "#{error_field.to_s.gsub("_", " ").capitalize} #{recipe.errors[error_field].first}" %> </li>
+	<% ingredient.errors.keys.each do |error_field| %>
+		<li><%= "#{error_field.to_s.gsub("_", " ").capitalize} #{ingredient.errors[error_field].first}" %> </li>
 			<% end %>
 			</ul>
 			</div>
@@ -19,6 +19,6 @@
 				<%= f.text_field :type %>
 			</div>
 			<div class = "actions" >
-				<%= f.submit "Create recipe" %>
+				<%= f.submit "Create Ingredient" %>
 			</div>
 		<%end%>
