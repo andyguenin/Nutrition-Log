@@ -2,13 +2,17 @@
 <br>
     <div class="row-fluid">
 
-      <div class="span6">
-	
-<h2>  Andy Guenin</h2>
-The master Rails person...
-</div>
      <div class="span6">
-	<div class=" hero-unit"><h2>Andrew Staniforth</h2></div>
+	<div class=" hero-unit"><h2>Andy Guenin</h2>
+	University of Pennsylvania<br>
+	Mechanical Engineering Class of 2012
+	</div>
+	
+    </div>
+     <div class="span6">
+	<div class=" hero-unit"><h2>Andrew Staniforth</h2>
+	University of Pennsylvania<br>
+	M&T Class of 2013</div>
     </div>
 
 </div>
@@ -16,10 +20,19 @@ The master Rails person...
     <div class="row-fluid">
 
       <div class="span6">
-	<div class=" hero-unit"><h2>Alex Hoffman</h2></div>
-    </div>
+	<div class=" hero-unit"><h2>Alex Hoffman</h2>
+	University of Pennsylvania
+	</div>
+	</div>
+
+    
+    
      <div class="span6">
-	<div class=" hero-unit"><h2>Varun Deedwaniya</h2></div>
+	<div class=" hero-unit"><h2>Varun Deedwaniya</h2>
+	University of Pennsylvania<br>
+	M&T Class of 2013</div>
+	</div>
     </div>
 
+</div>
 </div>

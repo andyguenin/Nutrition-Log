@@ -45,7 +45,7 @@
 		<%= "No recipes found" if cu.empty? %>
 		<% cu.each do |recipe| %>
          <tr>
-           <td><%= recipe.name.titleize%></td>
+           <td><%= recipe.name.titleize%> (Recipe)</td>
            <td><%= link_to "View Item", recipe, :class => "btn btn-primary btn-mini" %></td>
            <td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
             <td><%= link_to "Delete", root_path, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
@@ -56,7 +56,7 @@
          
           <td><%= ingredient.name.titleize %></td>
           <td><%= link_to "View Item", ingredient, :class => "btn btn-primary btn-mini" %></td>
-          <td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
+          <td></td>
     <td><%= link_to "Delete", root_path, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
     
          </tr>
