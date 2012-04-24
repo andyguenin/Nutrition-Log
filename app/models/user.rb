@@ -81,6 +81,39 @@ class User < ActiveRecord::Base
 		(user && user.salt == cookie_salt) ? user : nil
 	end
 
+
+	def getnuts
+		nuts = {}
+		ing = self.logs.find(:all, :conditions => ["created_at > ?", 1.day.ago])
+		nuts[:calories] = findTotal(nuts, "Calories")
+		nuts[:] = findTotal(nuts, "Calories")
+		nuts[:] = findTotal(nuts, "Calories")
+		nuts[:] = findTotal(nuts, "Calories")
+		nuts[:] = findTotal(nuts, "Calories")
+		nuts[:] = findTotal(nuts, "Calories")
+		nuts[:] = findTotal(nuts, "Calories")
+		nuts[:] = findTotal(nuts, "Calories")
+		nuts[:] = findTotal(nuts, "Calories")
+		nuts[:] = findTotal(nuts, "Calories")
+		nuts[:] = findTotal(nuts, "Calories")
+		nuts[:] = findTotal(nuts, "Calories")
+
+
+
+	end
+
+	def findTotal(list, condition)
+		total = 0
+		list.each do |l|
+			l.nutritions.each do |n|
+				if n.name == condition
+					total = total + quantity
+				end
+			end
+		end
+		total
+	end
+	
 	private
 
 		def save_password?

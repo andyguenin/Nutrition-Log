@@ -36,6 +36,7 @@ class RecipesController < ApplicationController
 		else
 			flash.now[:error] = "You had an error creating your recipe"
 			@title = "Create recipe"
+			@recipe = @r
 			render 'new'
 		end
 	end
