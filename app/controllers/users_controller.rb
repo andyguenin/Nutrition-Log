@@ -63,5 +63,15 @@ class UsersController < ApplicationController
   def index
   end
 
+  def remove_log_item
+		lr = LogRecipe.find(params[:lrid])
+		unless lr.user_id = current_user.id
+			redirect_to root_path
+		end
+		lr.logs.each {|l| l.delete}
+		lr.delete
+		redirect_to profile_path
+	end
+
 
 end
