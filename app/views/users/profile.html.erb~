@@ -83,11 +83,11 @@
     <% if user.creator_id != nil%>
     <% if user.creator_id == current_user.id %>
        <td><%= "Me" %></td>
-       <td><%= link_to "View Profile", User.find(params[:id] = user.creator_id), :class =>"btn btn-mini btn-primary" %></td>
+       <td><%= link_to "View Profile", User.find(params[:id] = user.creator_id), :class =>"btn btn-mini btn-inverse" %></td>
         
     <% else %>    
         <td><%= User.find(params[:id] =user.creator_id).name %></td>
-        <td><%= link_to "View Profile", User.find(params[:id] = user.creator_id), :class =>"btn btn-mini btn-primary" %></td>
+        <td><%= link_to "View Profile", User.find(params[:id] = user.creator_id), :class =>"btn btn-mini btn-inverse" %></td>
         
     <%end%>
 <%end%>

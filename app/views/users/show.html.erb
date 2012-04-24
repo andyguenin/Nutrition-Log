@@ -21,9 +21,9 @@
     <% @user.recipes.order("created_at DESC").limit(10).each do |recipe| %>
          <tr>
            <td><%= link_to recipe.name.titleize, recipe %>
-           <%  recipe.ingredients.each do |ingredient| %>
-          <li><%= link_to ingredient.name.titleize, ingredient %></li>
-           <% end %>
+                    <%  recipe.ingredients.each do |ingredient| %>
+                         <li><%= link_to ingredient.name.titleize, ingredient %></li>
+                    <% end %>
            <i class="pull-right">Created on <%=  recipe.created_at.strftime('%m/%d/%Y')%></i>
            </td>
         </tr>
