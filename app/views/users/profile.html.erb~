@@ -78,10 +78,10 @@
 	<th>Quantity</th>
   </tr>
         </thead>
-        
+        <%= nuts = current_user.getnuts %>
         <tr>
         <td>Calories</td>
-        <td> g</td>
+        <td><% nuts[:Calories] %> g</td>
         </tr>
 
  <tr>
@@ -120,10 +120,48 @@
 
         
         <tr>
-        <td></td>
+        <td>Vitamin A</td>
         <td> g</td>
         </tr>
 
+
+        <tr>
+        <td>Vitamin B6</td>
+        <td> g</td>
+        </tr>
+        
+        <tr>
+        <td>Vitamin B12</td>
+        <td> g</td>
+        </tr>
+        
+        <tr>
+        <td>Vitamin C</td>
+        <td> g</td>
+        </tr>
+        
+        <tr>
+        <td>Vitamin D</td>
+        <td> g</td>
+        </tr>
+
+     
+        <tr>
+        <td>Calcium</td>
+        <td> g</td>
+        </tr>
+
+     
+        <tr>
+        <td>Potassium</td>
+        <td> g</td>
+        </tr>
+             
+        <tr>
+        <td>Sodium</td>
+        <td> g</td>
+        </tr>
+             
 
 </table>
 

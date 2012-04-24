@@ -78,10 +78,10 @@
 	<th>Quantity</th>
   </tr>
         </thead>
-        
+        <% nuts = current_user.getnuts %>
         <tr>
         <td>Calories</td>
-        <td> g</td>
+        <td><% nuts[:Calories] %> g</td>
         </tr>
 
  <tr>

@@ -35,19 +35,19 @@ class IngredientsController < ApplicationController
 		@ingredient = Ingredient.create(ingredient_params)
 		nutr = params[:nutr]
 		if @ingredient.save
-			@ingredient.nutritions.create({:name => "Calories", :quantity => nutr["Calories"]})
-			@ingredient.nutritions.create({:name => "Protein", :quantity => nutr["Protein"]})
-			@ingredient.nutritions.create({:name => "Carbs", :quantity => nutr["Carbs"]})
-			@ingredient.nutritions.create({:name => "Fiber", :quantity => nutr["Fiber"]})
-			@ingredient.nutritions.create({:name => "Trans Fat", :quantity => nutr["Trans_Fat"]})
-			@ingredient.nutritions.create({:name => "Fat", :quantity => nutr["Fat"]})
-			@ingredient.nutritions.create({:name => "Vitamin B6", :quantity => nutr["Vitamin_B6"]})
-			@ingredient.nutritions.create({:name => "Vitamin B12", :quantity => nutr["Vitamin_B12"]})
-			@ingredient.nutritions.create({:name => "Vitamin C", :quantity => nutr["Vitamin_C"]})
-			@ingredient.nutritions.create({:name => "Vitamin D", :quantity => nutr["Vitamin_D"]})
-			@ingredient.nutritions.create({:name => "Calcium", :quantity => nutr["Calcium"]})
-			@ingredient.nutritions.create({:name => "Potassium", :quantity => nutr["Potassium"]})
-			@ingredient.nutritions.create({:name => "Sodium", :quantity => nutr["Sodium"].to_i:q})
+			@ingredient.nutritions.create({:name => "Calories", :quantity => nutr["Calories"].to_f})
+			@ingredient.nutritions.create({:name => "Protein", :quantity => nutr["Protein"].to_f})
+			@ingredient.nutritions.create({:name => "Carbs", :quantity => nutr["Carbs"].to_f})
+			@ingredient.nutritions.create({:name => "Fiber", :quantity => nutr["Fiber"].to_f})
+			@ingredient.nutritions.create({:name => "Trans Fat", :quantity => nutr["Trans_Fat"].to_f})
+			@ingredient.nutritions.create({:name => "Fat", :quantity => nutr["Fat"].to_f})
+			@ingredient.nutritions.create({:name => "Vitamin B6", :quantity => nutr["Vitamin_B6"].to_f})
+			@ingredient.nutritions.create({:name => "Vitamin B12", :quantity => nutr["Vitamin_B12"].to_f})
+			@ingredient.nutritions.create({:name => "Vitamin C", :quantity => nutr["Vitamin_C"].to_f})
+			@ingredient.nutritions.create({:name => "Vitamin D", :quantity => nutr["Vitamin_D"].to_f})
+			@ingredient.nutritions.create({:name => "Calcium", :quantity => nutr["Calcium"].to_f})
+			@ingredient.nutritions.create({:name => "Potassium", :quantity => nutr["Potassium"].to_f})
+			@ingredient.nutritions.create({:name => "Sodium", :quantity => nutr["Sodium"].to_f})
 			redirect_to ingredient_path @ingredient
 		else
 			flash.now[:error] = "Fix the errors before saving the ingredient"
