@@ -38,6 +38,7 @@ production:
   reconnect: false
   database: nl_production
   pool: 5
-  username: root
-  password:
+  username: staan
+  password: guenin
   socket: /var/run/mysqld/mysqld.sock
+  host: fling.seas.upenn.edu
