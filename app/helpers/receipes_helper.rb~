@@ -1,0 +1,5 @@
+module ReceipesHelper
+    def ingredient_params
+		params[:recipe].slice(:name, :type_id)
+	end
+end

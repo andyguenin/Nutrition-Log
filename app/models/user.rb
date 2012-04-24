@@ -56,8 +56,9 @@ class User < ActiveRecord::Base
 
 	def consume_recipe(r)
 		self.consumed_recipes << r
+		last = self.log_recipes.order("id desc").limit(1).first
 		r.ingredients.each do |i|
-			self.logs.create(:ingredient_id => i.id, :servings => 1, :date => Time.now)
+			self.logs.create(:ingredient_id => i.id, :servings => 1, :date => Time.now, :log_recipe_id => last.id)
 		end
 	end
 

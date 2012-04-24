@@ -22,6 +22,12 @@ class RecipesController < ApplicationController
           end
     end		
 
+	def consume
+		@r = Recipe.find(params[:id])
+		current_user.consume_recipe(@r)
+		redirect_to profile_path
+	end
+
 	def create
 		@r = Recipe.create(params[:recipe])
 		if(@r.save)

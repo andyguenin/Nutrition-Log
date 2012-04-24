@@ -1,0 +1,14 @@
+
+<div class = "row">
+<div class = "span6 middle offset5">
+<div class = "hero-unit">
+
+
+<h2>Create a new Recipe</h2>
+
+<%= render :partial => "recipe_form", :locals => {:recipe => @recipe} %>
+
+</div>
+</div>
+</div>
+
