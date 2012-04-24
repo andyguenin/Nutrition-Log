@@ -1,8 +1,21 @@
 <script language ="javascript">
 	$(function($) { 
 		$("#search-button").click(function() {
-			$("#consumed_ingredients").load("<%= recipe_search_path %>?q=" + $("#search-text").val());
+			replace_with_search();
 		});
+
+		$("#search-text").keypress(function(e) {
+			var code = (e.keyCode ? e.keyCode : e.which);
+			if(code == 13)
+			{
+				replace_with_search();
+			}
+		});
+
+		function replace_with_search()
+		{
+			$("#consumed_ingredients").load("<%= recipe_search_path %>?q=" + $("#search-text").val());
+		};
 	});	
 </script>
 
@@ -12,7 +25,7 @@
 <div class = "row-fluid">
 <div class = "span2">
 
-<form class="well">
+<div class="well">
   <h2>Search</h2>
   <input type="text" class="span2" id="search-text" laceholder="Find an Ingredient..."><br>
   <button type="button" class="btn btn-primary " id="search-button">Search</button>
@@ -22,7 +35,7 @@
   <br>
   <br>
   <%= link_to "Create a new recipe", new_recipe_path, :class => 'btn btn-success' %>
-</form>
+</div>
 
 </div>
 <div class = "span4">
