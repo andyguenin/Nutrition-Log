@@ -97,8 +97,8 @@ class User < ActiveRecord::Base
 		nuts[:Vitamin_D] = findTotal(ing, "Vitamin_D")
 		nuts[:Calcium] = findTotal(ing, "Calcium")
 		nuts[:Potassium] = findTotal(ing, "Potassium")
-        nuts[:Sodium] = findTotal(ing, "Sodium")
-        
+    nuts[:Sodium] = findTotal(ing, "Sodium")
+    return nuts      
 
 	end
 
