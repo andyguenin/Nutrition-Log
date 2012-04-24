@@ -1,0 +1,26 @@
+<h2>Search Results</h2>
+	<table class ="table table-striped">
+		<thead>
+		<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		</tr>
+		</thead>
+
+		<% recipes.each do |r| %>
+		<tr>
+		<td><%= r.name %></td>
+
+<td><%= link_to "View Item", recipe_path(r), :class => "btn btn-primary btn-mini" %></td>
+<td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
+<td><%= link_to "Delete", root_path, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
+
+
+
+		</tr>
+		<% end %>
+		</table>
+
+
