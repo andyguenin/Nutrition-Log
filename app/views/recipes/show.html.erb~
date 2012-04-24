@@ -4,7 +4,7 @@
 <div class="row-fluid">
     <div class="span12">
         <div class ="hero-unit">
-        <h2>Recipes <%= link_to "Consume", current_user.consume_recipe(@recipe), :class => 'btn btn-success pull-right' %></h2>
+        <h2>Recipes <%= link_to "Consume", consume_recipe_path(@recipe), :class => 'btn btn-success pull-right' %></h2>
         <table class ="table table-striped">
         <thead>
 	        <tr>

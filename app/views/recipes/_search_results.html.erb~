@@ -11,11 +11,10 @@
 
 		<% recipes.each do |r| %>
 		<tr>
-		<td><%= r.name.titleize %></td>
+		<td><%= r.name %></td>
 
 <td><%= link_to "View Item", recipe_path(r), :class => "btn btn-primary btn-mini" %></td>
-<td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
-
+<td><%= link_to "Consume", consume_recipe_path(r), :class => "btn btn-success btn-mini" %></td>
 
 
 
