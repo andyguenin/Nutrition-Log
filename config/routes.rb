@@ -4,7 +4,7 @@ Nl::Application.routes.draw do
   get "/about" => "pages#about", :as => :about
   get "/team" => "pages#team", :as => :team
 
-  
+	get "/search" => "recipes#search", :as => :recipe_search  
 	resources :ingredients, :only => [:index, :show, :new, :create]
 	resources :users
 	resources :recipes

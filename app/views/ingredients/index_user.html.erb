@@ -1,3 +1,12 @@
+<script language ="javascript">
+	$(function($) { 
+		$("#search-button").click(function() {
+			$("#search-results").load("/<%= recipe_search_path %>?q=" + $("#search-text").val());
+		});
+	});	
+</script>
+
+
 <h1>Food</h1>
 <br>
 <div class = "row-fluid">
@@ -5,8 +14,8 @@
 
 <form class="well">
   <h2>Search</h2>
-  <input type="text" class="span2" placeholder="Find an Ingredient..."><br>
-  <button type="submit" class="btn btn-primary ">Search</button>
+  <input type="text" class="span2" id="search-text" laceholder="Find an Ingredient..."><br>
+  <button type="button" class="btn btn-primary " id="search-button">Search</button>
   <br>
   <br>
   <%= link_to "Create a new ingredient", new_ingredient_path, :class => 'btn btn-success' %>
@@ -73,7 +82,7 @@
 	</tr>
 	</thead>
 	
-	<tr>
+	<tr id="search-results">
     <td>Hard Coded Example One</td>
     <td><%= link_to "View Item", root_path, :class => "btn btn-primary btn-mini" %></td>
     <td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
