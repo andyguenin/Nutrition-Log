@@ -33,6 +33,7 @@ class IngredientsController < ApplicationController
 
   def create
 		@ingredient = Ingredient.create(ingredient_params)
+
 		if @ingredient.save
 			redirect_to ingredient_path @ingredient
 		else
@@ -40,6 +41,7 @@ class IngredientsController < ApplicationController
 			render 'new'
 		end
   end
+
   
     def destroy
 		
