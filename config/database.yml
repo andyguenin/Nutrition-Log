@@ -26,12 +26,13 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: nl_test
+  database: staan
   pool: 5
-  username: root
-  password:
+  username: staan
+  password: guenin
   socket: /var/run/mysqld/mysqld.sock
-
+  host: fling.seas.upenn.edu
+  port: 3306
 production:
   adapter: mysql2
   encoding: utf8
@@ -42,4 +43,4 @@ production:
   password: guenin
   socket: /var/run/mysqld/mysqld.sock
   host: fling.seas.upenn.edu
-  port: 3305
+  port: 3306
