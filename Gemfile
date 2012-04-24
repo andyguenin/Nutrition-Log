@@ -8,13 +8,13 @@ gem 'sunspot_solr'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :test do
-#	gem 'mysql2'
+	gem 'mysql2'
 	gem 'therubyracer'
 end
 
 group :production do
 	gem 'pg'
-	gem 'mysql2', '< 0.3.7'
+#	gem 'mysql2', '< 0.3.7'
 #	gem 'activerecord-mysql-adapter'
 end
 
