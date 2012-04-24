@@ -5,6 +5,7 @@ Nl::Application.routes.draw do
   get "/team" => "pages#team", :as => :team
 
 	get "/search" => "recipes#search", :as => :recipe_search  
+	get "/recipes/:id/consume" => "recipes#consume", :as => :consume_recipe
 	resources :ingredients, :only => [:index, :show, :new, :create]
 	resources :users
 	resources :recipes
