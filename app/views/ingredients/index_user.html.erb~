@@ -1,3 +1,12 @@
+<script language ="javascript">
+	$(function($) { 
+		$("#search-button").click(function() {
+			$("#consumed_ingredients").load("<%= recipe_search_path %>?q=" + $("#search-text").val());
+		});
+	});	
+</script>
+
+
 <h1>Food</h1>
 <br>
 <div class = "row-fluid">
@@ -5,8 +14,8 @@
 
 <form class="well">
   <h2>Search</h2>
-  <input type="text" class="span2" placeholder="Find an Ingredient..."><br>
-  <button type="submit" class="btn btn-primary ">Search</button>
+  <input type="text" class="span2" id="search-text" laceholder="Find an Ingredient..."><br>
+  <button type="button" class="btn btn-primary " id="search-button">Search</button>
   <br>
   <br>
   <%= link_to "Create a new ingredient", new_ingredient_path, :class => 'btn btn-success' %>
@@ -32,8 +41,9 @@
 	        <th></th>
           	</tr>
         </thead>
-        
-    <%  current_user.recipes.order("created_at DESC").limit(10).each do |recipe| %>
+		<% cu = current_user.recipes.order("created_at DESC").limit(10)%>
+		<%= "No recipes found" if cu.empty? %>
+		<% cu.each do |recipe| %>
          <tr>
            <td><%= recipe.name.titleize%></td>
            <td><%= link_to "View Item", recipe, :class => "btn btn-primary btn-mini" %></td>
@@ -61,36 +71,8 @@
 <div class = "span6">
 <div class = "hero-unit">
 <div id="consumed_ingredients">
-	<h2>Search Results</h2>
-	<table class = "table table-striped">
-    <thead>
-	<tr>
-	<th></th>
-	<th></th>
-	<th></th>
-    <th></th>
-	</tr>
-	</thead>
-	
-	<tr>
-    <td>Hard Coded Example One</td>
-    <td><%= link_to "View Item", ingredient, :class => "btn btn-primary btn-mini" %></td>
-    <td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
-    <td><%= link_to "Delete", root_path, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
-    </tr>
-    <tr>
-    <td>Hard Coded Example Two</td>
-    <td><%= link_to "View Item", ingredient, :class => "btn btn-primary btn-mini" %></td>
-    <td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
-    <td><%= link_to "Delete", root_path, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
-    </tr>
-<tr>
-    <td>Hard Coded Example Three</td>
-    <td><%= link_to "View Item", ingredient, :class => "btn btn-primary btn-mini" %></td>
-    <td><%= link_to "Consume", root_path, :class => "btn btn-success btn-mini" %></td>
-    <td><%= link_to "Delete", root_path, :method=>:destroy,:confirm=>"Are you sure?", :class => "btn btn-danger btn-mini" %></td>
-    </tr>
-	</table>
+	Search for recipes on the left hand side
+
 </div>
 </div>
 </div>
