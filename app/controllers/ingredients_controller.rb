@@ -47,7 +47,7 @@ class IngredientsController < ApplicationController
 			@ingredient.nutritions.create({:name => "Vitamin D", :quantity => nutr["Vitamin_D"]})
 			@ingredient.nutritions.create({:name => "Calcium", :quantity => nutr["Calcium"]})
 			@ingredient.nutritions.create({:name => "Potassium", :quantity => nutr["Potassium"]})
-			@ingredient.nutritions.create({:name => "Sodium", :quantity => nutr["Sodium"]})
+			@ingredient.nutritions.create({:name => "Sodium", :quantity => nutr["Sodium"].to_i:q})
 			redirect_to ingredient_path @ingredient
 		else
 			flash.now[:error] = "Fix the errors before saving the ingredient"
