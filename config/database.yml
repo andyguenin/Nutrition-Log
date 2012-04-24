@@ -12,12 +12,13 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: nl_development
+  database: staan
   pool: 5
-  username: root
-  password: 
+  username: staan
+  password: guenin
   socket: /var/run/mysqld/mysqld.sock
-
+  host: fling.seas.upenn.edu
+  port: 3306
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.

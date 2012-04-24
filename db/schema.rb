@@ -49,13 +49,6 @@ ActiveRecord::Schema.define(:version => 20120424025912) do
   add_index "logs", ["log_recipe_id"], :name => "index_logs_on_log_recipe_id"
   add_index "logs", ["user_id"], :name => "index_logs_on_user_id"
 
-  create_table "nutrition", :primary_key => "nutrition_id", :force => true do |t|
-    t.string  "ingredient_name"
-    t.integer "ingredient_id"
-    t.string  "nutrient_name"
-    t.decimal "quantity",        :precision => 15, :scale => 9
-  end
-
   create_table "nutritions", :force => true do |t|
     t.integer  "ingredient_id"
     t.string   "name"
@@ -77,14 +70,6 @@ ActiveRecord::Schema.define(:version => 20120424025912) do
   add_index "recipe_ingredient_joins", ["ingredient_id"], :name => "index_recipe_ingredient_joins_on_ingredient_id"
   add_index "recipe_ingredient_joins", ["recipe_id"], :name => "index_recipe_ingredient_joins_on_recipe_id"
 
-  create_table "recipe_ingredients", :primary_key => "recipe_ingredient_id", :force => true do |t|
-    t.integer "recipe_id",     :null => false
-    t.integer "ingredient_id", :null => false
-    t.integer "quantity",      :null => false
-  end
-
-  add_index "recipe_ingredients", ["recipe_id", "ingredient_id"], :name => "recipe_id"
-
   create_table "recipes", :force => true do |t|
     t.string   "name"
     t.float    "serving_size"
@@ -101,13 +86,6 @@ ActiveRecord::Schema.define(:version => 20120424025912) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "user_favorite_recipe", :primary_key => "favorite_id", :force => true do |t|
-    t.integer "recipe_id", :null => false
-    t.integer "user_id",   :null => false
-  end
-
-  add_index "user_favorite_recipe", ["recipe_id"], :name => "recipe_id"
 
   create_table "user_favorite_recipes", :force => true do |t|
     t.integer  "recipe_id"
