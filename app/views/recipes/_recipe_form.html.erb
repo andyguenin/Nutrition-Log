@@ -1,28 +1,21 @@
-<%= form_for(rec) do |f| %
-<% unless user.errors.empty? %>
-<div id="user_error_message">
-You have some errors.<br />
-<ul>
-<% user.errors.keys.each do |error_field| %>
-<li><%= "#{error_field.to_s.gsub("_"," ").capitalize} #{user.errors[e    rror_field].first}" %> </li>
-<% end %>
-</ul>
-</div>
-i<%end%>
+<%= form_for(recipe) do |f| %>
+	<% unless recipe.errors.empty? %>
+	<div id = "recipe_error_message">
+	You have some errors.<br />
+	<ul>
+	<% recipe.errors.keys.each do |error_field| %>
+		<li><%= "#{error_field.to_s.gsub("_", " ").capitalize} #{recipe.errors[error_field].first}" %> </li>
+			<% end %>
+			</ul>
+			</div>
+			<% end %>
 
-<div class="field">
-	<%= f.label :recipe_name %>
-	<%= f.text_field :name %>
-</div>
+			<div class = "field" >
+				<%= f.label :name %><br />
+				<%= f.text_field :name %>
+			</div>
 
-
-
-<div class="field">
-	<%= f.label :serving_size_in_mg %>
-	<%= f.text_field :serving_size %>
-</div>
-
-<div class = "actions">
-	<%= f.submit "Create Recipe" %>
-</div>
-<%end%>
+			<div class = "actions" >
+				<%= f.submit "Create recipe" %>
+			</div>
+		<%end%>

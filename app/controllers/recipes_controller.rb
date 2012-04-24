@@ -10,6 +10,7 @@ class RecipesController < ApplicationController
 
 	def new
 		@title = "Create recipe"
+		@recipe = Recipe.new
 	end
 	
      def show
@@ -32,6 +33,7 @@ class RecipesController < ApplicationController
 			render 'new'
 		end
 	end
+	
 
 	def add_ingredient
 		@recipe = params[:recipe_id]

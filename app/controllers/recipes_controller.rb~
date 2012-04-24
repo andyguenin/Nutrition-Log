@@ -10,6 +10,7 @@ class RecipesController < ApplicationController
 
 	def new
 		@title = "Create recipe"
+		@recipe = Recipe.new
 	end
 	
      def show
@@ -25,13 +26,14 @@ class RecipesController < ApplicationController
 	def create
 		@r = Recipe.create(params[:recipe])
 		if(@r.save)
-			redirect_to @r
+			redirect_to recipe_path @r
 		else
 			flash.now[:error] = "You had an error creating your recipe"
-			@title = "Crate recipe"
+			@title = "Create recipe"
 			render 'new'
 		end
 	end
+	
 
 	def add_ingredient
 		@recipe = params[:recipe_id]
