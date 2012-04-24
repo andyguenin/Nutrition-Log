@@ -14,7 +14,8 @@ end
 
 group :production do
 	gem 'pg'
-gem 'mysql2'
+	gem 'mysql2'
+	gem 'gem install activerecord-mysql-adapter'
 end
 
 group :development do
