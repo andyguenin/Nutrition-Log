@@ -14,11 +14,69 @@
 				<%= f.label :name %><br />
 				<%= f.text_field :name %>
 			</div>
-			<div class = "field" >
-				<%= f.label :type %><br />
-				<%= f.text_field :type %>
-			</div>
+            
+            
+       <div class = "field">
+       <label for="Calories">Calories</label><br />
+         <input id="ingredient_???" name="nutr[???]" size="30" type="text" />
+       </div>   
+       <br>
+       <div class = "field">
+       <label for="Protein">Protein</label><br />
+         <input id="ingredient_???" name="nutr[???]" size="30" type="text" />
+       </div> <br>
+              <div class = "field">
+       <label for="Carbs">Carbs</label><br />
+         <input id="ingredient_???" name="nutr[???]" size="30" type="text" />
+       </div> <br>      
+        <div class = "field">
+       <label for="Fiber">Fiber</label><br />
+         <input id="ingredient_???" name="nutr[???]" size="30" type="text" />
+       </div> <br>
+               <div class = "field">
+       <label for="Trans Fat">Trans Fat</label><br />
+         <input id="ingredient_???" name="nutr[???]" size="30" type="text" />
+       </div> <br>       
+     <div class = "field">
+       <label for="Fat">Far</label><br />
+         <input id="ingredient_???" name="nutr[???]" size="30" type="text" />
+       </div><br>
+       
+     <div class = "field">
+       <label for="Vitamin_B6">Vitamin B6</label><br />
+         <input id="ingredient_???" name="nutr[???]" size="30" type="text" />
+       </div><br>
+       
+       <div class = "field">
+       <label for="Vitamin_B12">Vitamin B12</label><br />
+         <input id="ingredient_???" name="nutr[???]" size="30" type="text" />
+       </div>  <br>
+       
+     <div class = "field">
+       <label for="Vitamin_C">Vitamin C</label><br />
+         <input id="ingredient_???" name="nutr[???]" size="30" type="text" />
+       </div>  <br>     
+     <div class = "field">
+       <label for="Vitamin_D">Vitamin D</label><br />
+         <input id="ingredient_???" name="nutr[???]" size="30" type="text" />
+       </div>   <br>    
+            <div class = "field">
+       <label for="Calcium">Calcium</label><br />
+         <input id="ingredient_???" name="nutr[???]" size="30" type="text" />
+       </div> <br>    
+            <div class = "field">
+       <label for="Potassium">Potassium</label><br />
+         <input id="Potassium" name="nutr[???]" size="30" type="text" />
+       </div>  <br>   
+            <div class = "field">
+       <label>Sodium</label><br />
+         <input id="Sodium" name="nutr[???]" size="30" type="text" />
+       </div>  <br>   
+       
+       
 			<div class = "actions" >
 				<%= f.submit "Create Ingredient", :class =>'btn btn-primary' %>
 			</div>
 		<%end%>
+	
+

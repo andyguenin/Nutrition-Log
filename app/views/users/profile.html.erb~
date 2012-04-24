@@ -56,7 +56,7 @@
     <td><%=  Recipe.find(params[:id]=recipe.recipe_id).name.titleize %></td>
     <td><%= recipe.created_at.strftime('%m/%d/%Y %I:%M %p') %></td>
     <td> <%= link_to "View Item",  Recipe.find(params[:id]=recipe.recipe_id), :class => 'btn btn-primary btn-mini pull-right' %></td>
-    <td> <%= link_to "Delete",  Recipe.find(params[:id]=recipe.recipe_id), :class => 'btn btn-danger btn-mini pull-right' %></td>
+    <td> <%= link_to "Delete",  delete_logged_recipe_path(recipe), :class => 'btn btn-danger btn-mini pull-right' %></td>
   </tr> 
 <% end %>
 </table>
