@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120424014322) do
+ActiveRecord::Schema.define(:version => 20120424025912) do
 
   create_table "ingredients", :force => true do |t|
     t.string   "name"
@@ -58,11 +58,11 @@ ActiveRecord::Schema.define(:version => 20120424014322) do
 
   create_table "nutritions", :force => true do |t|
     t.integer  "ingredient_id"
-    t.integer  "quantity"
     t.string   "name"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "label"
+    t.float    "quantity"
   end
 
   add_index "nutritions", ["ingredient_id"], :name => "index_nutritions_on_ingredient_id"

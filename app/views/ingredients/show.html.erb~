@@ -15,7 +15,7 @@
         
         <%  @ingredient.nutritions.each do |nutrition| %>
          <tr>
-           <td><%= link_to nutrition.name.titleize, nutrition %></td>
+           <td><%= nutrition.name.titleize %></td>
            <td><%= nutrition.quantity %></td>
         </tr>
 <% end %>
