@@ -85,19 +85,19 @@ class User < ActiveRecord::Base
 	def getnuts
 		nuts = {}
 		ing = self.logs.find(:all, :conditions => ["created_at > ?", 1.day.ago])
-		nuts[:Calories] = findTotal(nuts, "Calories")
-		nuts[:Protein] = findTotal(nuts, "Protein")
-		nuts[:Carbs] = findTotal(nuts, "Carbs")
-		nuts[:Fiber] = findTotal(nuts, "Fiber")
-		nuts[:Trans_Fat] = findTotal(nuts, "Trans_Fat")
-		nuts[:Fat] = findTotal(nuts, "Fat")
-		nuts[:Vitamin_B6] = findTotal(nuts, "Vitamin_B6")
-		nuts[:Vitamin_B12] = findTotal(nuts, "Vitamin_B12")
-		nuts[:Vitamin_C] = findTotal(nuts, "Vitamin_C")
-		nuts[:Vitamin_D] = findTotal(nuts, "Vitamin_D")
-		nuts[:Calcium] = findTotal(nuts, "Calcium")
-		nuts[:Potassium] = findTotal(nuts, "Potassium")
-        nuts[:Sodium] = findTotal(nuts, "Sodium")
+		nuts[:Calories] = findTotal(ing, "Calories")
+		nuts[:Protein] = findTotal(ing, "Protein")
+		nuts[:Carbs] = findTotal(ing, "Carbs")
+		nuts[:Fiber] = findTotal(ing, "Fiber")
+		nuts[:Trans_Fat] = findTotal(ing, "Trans_Fat")
+		nuts[:Fat] = findTotal(ing, "Fat")
+		nuts[:Vitamin_B6] = findTotal(ing, "Vitamin_B6")
+		nuts[:Vitamin_B12] = findTotal(ing, "Vitamin_B12")
+		nuts[:Vitamin_C] = findTotal(ing, "Vitamin_C")
+		nuts[:Vitamin_D] = findTotal(ing, "Vitamin_D")
+		nuts[:Calcium] = findTotal(ing, "Calcium")
+		nuts[:Potassium] = findTotal(ing, "Potassium")
+        nuts[:Sodium] = findTotal(ing, "Sodium")
         
 
 	end
