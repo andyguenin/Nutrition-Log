@@ -4,7 +4,7 @@
 <div class="row-fluid">
     <div class="span12">
         <div class ="hero-unit">
-        <h2>Nutrients <%= link_to "Add Nutrients", :recipe, :class => 'btn btn-success pull-right' %></h2>
+        <h2>Nutrients </h2>
         <table class ="table table-striped">
         <thead>
 	        <tr>
@@ -16,7 +16,7 @@
         <%  @ingredient.nutritions.each do |nutrition| %>
          <tr>
            <td><%= nutrition.name.titleize %></td>
-           <td><%= nutrition.quantity %></td>
+           <td><%= nutrition.quantity %>mg</td>
         </tr>
 <% end %>
 </table>
