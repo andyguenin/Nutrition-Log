@@ -62,5 +62,9 @@ class IngredientsController < ApplicationController
 		redirect_to ingredients_path
   end
 
+	def search
+		@a=Ingredient.search(params[:q])
+		render :partial => "ingredients/ingredient_list", :locals => {:ingredient => @a, :rid => params[:rid]}
+	end
 
 end

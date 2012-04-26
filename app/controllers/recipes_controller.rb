@@ -45,15 +45,20 @@ class RecipesController < ApplicationController
 		render :partial => "search_results", :locals => {:recipes => Recipe.search(params[:q])}
 	end
 
-	def add_ingredient
-		@recipe = params[:recipe_id]
-		@ing = Ingredient.find_by_name(params[:ingredient_name])
+
+	def edit
+		@recipe = Recipe.find(params[:id])
+		@title = "Edit #{@recipe.name}"
+	end
+
+
+	def addingredient
+		@recipe = Recipe.find(params[:id])
+		@ing = Ingredient.find(params[:ingredient_id])
 		unless @ing.nil?
-			@recipe.ingredients << @ing
-			true
-		else
-			false
+			@recipe.ingredients << @ing	
 		end
+		redirect_to edit_recipe_path(@recipe)
 	end
 
 end

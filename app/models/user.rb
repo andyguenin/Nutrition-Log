@@ -84,34 +84,23 @@ class User < ActiveRecord::Base
 
 	def getnuts
 		nuts = {}
-		ing = self.logs.find(:all, :conditions => ["created_at > ?", 1.day.ago])
-		nuts[:Calories] = findTotal(ing, "Calories")
-		nuts[:Protein] = findTotal(ing, "Protein")
-		nuts[:Carbs] = findTotal(ing, "Carbs")
-		nuts[:Fiber] = findTotal(ing, "Fiber")
-		nuts[:Trans_Fat] = findTotal(ing, "Trans_Fat")
-		nuts[:Fat] = findTotal(ing, "Fat")
-		nuts[:Vitamin_B6] = findTotal(ing, "Vitamin_B6")
-		nuts[:Vitamin_B12] = findTotal(ing, "Vitamin_B12")
-		nuts[:Vitamin_C] = findTotal(ing, "Vitamin_C")
-		nuts[:Vitamin_D] = findTotal(ing, "Vitamin_D")
-		nuts[:Calcium] = findTotal(ing, "Calcium")
-		nuts[:Potassium] = findTotal(ing, "Potassium")
-    nuts[:Sodium] = findTotal(ing, "Sodium")
+		nut_un = User.recently_consumed_nutritions(self.id)
+
+		nut_un.each do |t|
+			nuts[t[0].sub(" ", "_").to_sym] = t[1] * 1000
+		end
+
+		["Calories", "Protein", "Carbs", "Fiber", "Trans_Fat", "Fat", "Vitamin_B6", "Vitamin_B12", "Vitamin_C", "Vitamin_D", "Calcium", "Potassium", "Sodium"].each do |s|
+			nuts[s.to_sym] = 0 unless nuts.include? s.to_sym
+		end
     return nuts      
 
 	end
 
-	def findTotal(list, condition)
-		total = 0
-		 self.logs.find(:all, :conditions => ["created_at > ?", 1.day.ago]).each do |l|
-			l.nutritions.each do |n|
-				if n.name == condition
-					total = total + n.quantity
-				end
-			end
-		end
-		total
+
+	def self.recently_consumed_nutritions(id)
+		self.connection.execute(sanitize_sql(["select n.name, sum(n.quantity) from nutritions n inner join ingredients i on n.ingredient_id = i.id inner join logs l on l.ingredient_id = i.id inner join users u on u.id = l.user_id where u.id=? and l.created_at > ? group by n.name", id, 1.day.ago]))
+	
 	end
 	
 	private
